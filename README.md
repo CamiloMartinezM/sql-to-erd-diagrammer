@@ -1,1 +1,1 @@
-# mvc-python-template
+# SQL to ERD Diagrammer
