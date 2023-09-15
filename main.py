@@ -10,10 +10,23 @@
 from controllers.controller import MyController
 from views.view import ConsoleView
 
-def main():
+ORIGIN_FILE_NAME = 'Entity Model Dictionary_v2.xlsx'
+SHEET_NAME = 'DEF'
+
+'''def main():
     view = ConsoleView()
     controller = MyController(view)
-    controller.run()
+    controller.run_from_file(ORIGIN_FILE_NAME, SHEET_NAME)
+    
     
 if __name__ == '__main__':
     main()
+'''
+view = ConsoleView()
+controller = MyController(view)
+controller.run_from_file(ORIGIN_FILE_NAME, SHEET_NAME)
+# controller.entity_model_to_json("parsed.json", filter_params=[{"metadata": {"Module": ["Taxes Management"]}}])
+controller.entity_model_to_er_format("generated.pdf", filter_params=[{"metadata": {"Module": ["Enterprise Structure"]}}])
+model = controller.return_model()
+
+controller.generate_png("parsed.json")
